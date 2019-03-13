@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
- <!-- link rel="stylesheet" type="text/css" href="bootstrap-4.3.1-dist/css/bootstrap.min.css">
- -->
-<link rel="stylesheet" type="text/css" href="CSS/AllBootstrap.css">	
+ <!-- link rel="stylesheet" type="text/css" href="bootstrap-4.3.1-dist/css/bootstrap.min.css"> -->
+<link rel="stylesheet" type="text/css" href="CSS/AllBootstrap.css">
+
 <link rel="stylesheet" type="text/css" href="CSS/Style.css">
+
   <title>Forms for questing page</title>
 </head>
 <body class="pl-3 pb-2">
 <!-- Weight 50 -->
 <h3>Відповіді Weight 50</h3>
-<div class="card-header rounded border-secondary bg-light w-50  border card-space-gray">
+<div class="card-header rounded border-secondary bg-light w-50  border">
 <div class="custom-control custom-radio custom-control-inline w-50 ">
   <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input">
   <label class="custom-control-label" for="customRadioInline1">Toggle this custom radio</label>
@@ -101,22 +102,27 @@
 
 <!-- Coding Block -->
 <h3>Block for coding</h3>
- <div class="form-group w-50 card-space-gray">
-    <textarea class="form-control" style="height: 300px" id="exampleTextarea" rows="3"></textarea>
+ <div class="form-group w-50">
+    <textarea class="form-control border-primary" style="height: 300px" id="exampleTextarea" rows="3"></textarea>
   </div>
 
 
 <!-- Select coding lang -->
 <h3>Select coding lang</h3>
-  <div class="form-group w-25  ">
+  <div class="form-group w-25">
     <label for="exampleSelect1" class="h4">Виберіть мову програмування</label>
-    <select class="form-control" id="exampleSelect1" >
+    <select class="form-control border-primary" id="exampleSelect1" >
       <option disabled>Виберіть мову програмування:</option>
+      <option>C++</option>
       <option>C#</option>
       <option>Java</option>
       <option>Python</option>
-      <option>C++ ??</option>
     </select>
+  </div>
+
+  <h3>Описове</h3>
+    <div class="form-group pt-1">
+    <input type="text" class="form-control border-primary w-50">
   </div>
 
 <!-- All question panel -->
@@ -124,7 +130,7 @@
 <hr>
 <h4> Zavdanna 1 </h4>
 
-  <div class=" card-header rounded border-secondary border w-50">
+  <div class=" card-header rounded border-secondary border w-50 ">
     <div class="">
       <a class="btn btn-outline-primary " href="#" role="button">1</a>
       <a class="btn btn-outline-primary" href="#" role="button">2</a>
@@ -176,7 +182,7 @@
 <div class="">
   <br>
   <!-- question -->
-  <div class="card-header rounded border-info border w-50 pb-2 card-space-gray" >
+  <div class="card-header rounded border-info border w-50 pb-2 card-space-gray">
   <label class="h5">
     Some questions ??
   </label>
@@ -206,7 +212,7 @@
 
 <hr>
 <h4> Zavdanna 3 </h4>
-<div class=" card-header rounded border-secondary border w-50">
+<div class=" card-header rounded border-secondary border w-50 ">
     <div class="">
       <a class="btn btn-outline-primary " href="#" role="button">1</a>
       <a class="btn btn-outline-primary" href="#" role="button">2</a>
@@ -223,16 +229,42 @@
   </label>
     <div class="form-group">
     <label for="exampleSelect1" class="h5">Виберіть мову програмування</label>
-    <select class="form-control" id="exampleSelect1" >
+    <select class="form-control border-primary" id="exampleSelect1" >
       <option disabled>Виберіть мову програмування:</option>
+      <option>C++</option>
       <option>C#</option>
       <option>Java</option>
       <option>Python</option>
-      <option>C++ ??</option>
     </select>
   </div>
   <div class="form-group ">
-    <textarea class="form-control" style="height: 300px" id="exampleTextarea" rows="3"></textarea>
+    <textarea class="form-control border-primary" style="height: 300px" id="exampleTextarea" rows="3"></textarea>
+  </div>
+<br>
+<div class="d-flex justify-content-end">
+<button type="button" class="btn btn-primary ">Next &raquo;</button>
+</div>
+</div>
+<!-- opusove -->
+<hr>
+<h4> Zavdanna 4 </h4>
+<div class=" card-header rounded border-secondary border w-50 ">
+    <div class="">
+      <a class="btn btn-outline-primary " href="#" role="button">1</a>
+      <a class="btn btn-outline-primary" href="#" role="button">2</a>
+      <a class="btn btn-outline-primary" href="#" role="button">3</a>
+      <a class="btn btn-outline-primary" href="#" role="button">4</a>
+    </div>
+  </div>
+<div class="">
+  <br>
+  <!-- question -->
+  <div class="card-header rounded border-info border w-50 pb-2 card-space-gray">
+  <label class="h5">
+    Some questions ?? 
+  </label>
+  <div class="form-group pt-1">
+    <input type="text" class="form-control border-primary ">
   </div>
 <br>
 <div class="d-flex justify-content-end">
