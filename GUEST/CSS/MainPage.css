@@ -113,3 +113,6 @@ body {
     float: none;
     margin: auto;
 }
+.border-сustom{
+  border: 3px solid #dee2e6!important
+}
