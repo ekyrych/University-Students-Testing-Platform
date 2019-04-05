@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <style>
+ p { margin: 20px 0 0 }
+ b { color: blue; }
+</style>
+ <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+</head>
+<body>
+<form action="">
+  <input type="radio" name="white" value="1" id="white" />
+  <input type="radio" name="white" value="2" id="white" />
+  <input type="radio" name="white" value="3" id="white"  />
+  <input type="radio" name="white" value="1.ddd" id="white"  />ddd
+<br>
+  <input type="radio" name="Black" value="Black" id="white" />
+  <input type="radio" name="Black" value="Black" id="white" />
+  <input type="radio" name="Black" value="Black" id="white"  />
+  <input type="radio" name="Black" value="Black" id="white"  />ddd
+<br>
+  <input type="radio" name="red" value="red" id="white" />
+  <input type="radio" name="red" value="red" id="white" />
+  <input type="radio" name="red" value="red" id="white"  />
+  <input type="radio" name="red" value="red" id="white"  />ddd
+
+
+  <button type="button">Get Values</button>
+</form>
+<script>
+    $(document).ready(function() {
+        $("button").click(function(){
+            var arr = [];
+            $.each($("input[type='radio']:checked"), function(){            
+                arr.push($(this).val());
+            });
+            console.log(arr.join(", "));
+        });
+    });
+</script>
+</body>
+</html>
