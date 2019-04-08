@@ -22,6 +22,7 @@
 
   <script type="text/javascript" class="init">
   $(document).ready(function() {
+  $('#example td:nth-child(5)').addClass('password');
   $('#example').DataTable( {
     columnDefs: [ {
       orderable: false,
@@ -40,6 +41,7 @@
   #example{
     font-stretch: extra-condensed;
   }
+.password{ -webkit-text-security: disc;}
 </style>
 
 </head>
