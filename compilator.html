@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    	<title>test</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.3/ace.js" integrity="sha256-gkWBmkjy/8e1QUz5tv4CCYgEtjR8sRlGiXsMeebVeUo=" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.3/mode-c_cpp.js" integrity="sha256-eL+A+g74p1M4f0uZgCRQ+Oz/kMO+gM29SNAjoBStIWg=" crossorigin="anonymous"></script> -->
+    <script>
+    var code,select,value,stext="csharp";
+	$(function(){		
+		code = ace.edit("code");
+		code.setTheme("ace/theme/monokai");
+		code.getSession().setMode("ace/mode/"+stext);
+		code.setShowPrintMargin(false);
+		code.setOptions({
+			maxLines:Infinity,
+			fontSize:"12pt",
+		});
+		code.$blockScrolling=Infinity;
+	})
+	
+	function selectStyle(){
+	 select = document.getElementById("selectLan"); 
+     value = select.options[select.selectedIndex].value;
+		if(value=="C++"){
+		stext="c_cpp";
+		}else if(value=="4"){
+		stext="java";
+		}else if(value=="5"||value=="24"){
+		stext="python";
+		}else if(value=="1"){
+		stext="csharp";
+		}		
+		code.getSession().setMode("ace/mode/"+stext);
+	}
+	
+    $(document).ready(function(){
+        $("button").click(function(){
+		var output = $("#output");
+		output.text('');
+		select = document.getElementById("selectLan"); 
+    value = select.options[select.selectedIndex].value;
+        	if(value!="C++"){
+		    var to_compile = {
+			    "LanguageChoice": value,
+			    "Program": code.getValue(),
+			    "Input": "",
+			    "CompilerArgs" : ""
+		    };
+
+		    $.ajax ({
+			        url: "https://rextester.com/rundotnet/api",
+			        type: "POST",
+			        data: to_compile
+			    }).done(function(data) {
+			        output.text(JSON.stringify(data));
+			    }).fail(function(data, err) {
+			        output.text("fail " + JSON.stringify(data) + " " + JSON.stringify(err));
+		        });
+			}else{
+				var cmd = "g++ -Wall main.cpp -o main_prog && echo 'Compilation: SUCCESS."+"Program output is:\n' && ./main_prog && echo \"\nExit code: $?\"";
+
+		
+		var to_complite={ "src": code.getValue(),
+		"cmd": cmd,};
+
+		output.text("Executing... Please wait.");
+
+		$.ajax({
+			url: "http://coliru.stacked-crooked.com/compile",
+			type: "POST",
+			data: JSON.stringify(to_complite),
+			contentType:"text/plain; charset=utf-8",
+			dataType: "text"
+		}).done(function(data){
+			output.text(data);
+		}).fail(function(data){
+			output.text("Server error: "+ data);
+		});
+			}
+	    });
+    });
+	
+	
+    </script>
+    </head>
+<body>	
+    <textarea id="code">
+        
+    </textarea>
+<select id="selectLan" onchange="selectStyle()">
+    	<option value="1" checked>C#</option>
+    	<option value="C++">C++</option>
+    	<option value="5">Python 2</option>
+    	<option value="24">Python 3</option>
+    	<option value="4">Java</option>
+    </select>
+    <br>
+
+    <button id="run">Run</button>
+<p>Output:</p><pre id="output">Waiting</pre>
+</body>
+</html>
